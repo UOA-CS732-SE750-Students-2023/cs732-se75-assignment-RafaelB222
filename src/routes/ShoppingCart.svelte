@@ -1,22 +1,24 @@
 <script>
-	import { getContext, onDestroy } from 'svelte';
+	import { appContext } from './appContext.js';
 	import { groupItems } from './groupItems.js';
 	import CartItem from './CartItem.svelte';
-	const context = getContext('context');
-	let cart = [];
+	let cart;
 	let totalCost;
 	let groups;
 
-	$: if ($context.cart) {
-		cart = $context.cart;
+	$: {
+		//cart must be reactively assigned to $appContext.cart so that whenever the store is updated the cart variable is reassigned. 
+		cart = $appContext.cart;	
 		totalCost = cart.map((item) => item.cost).reduce((prev, cost) => prev + cost, 0);
 		groups = groupItems(cart);
 	}
+		
+		
 </script>
 
 <div class="cart">
 	<h3>My Cart</h3>
-	{#if cart.length > 0}
+	{#if cart.length > 0} 
 		{#each groups as group}
 			<CartItem {group} />
 		{/each}
@@ -43,11 +45,5 @@
 		padding: 5px;
 	}
 
-	.cartItem {
-		display: flex;
-		flex-direction: row;
-		justify-content: flex-start;
-		align-items: center;
-		gap: 5px;
-	}
+	
 </style>

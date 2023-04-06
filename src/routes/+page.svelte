@@ -1,27 +1,30 @@
 <script>
-    import { getContext, onDestroy } from "svelte";
+    //This is the page that will be displayed at "/"
     import Product from "./Product.svelte";
 	import ShoppingCart from "./ShoppingCart.svelte";
-    const context = getContext('context');
-    const products = $context.products;
-
+    import { appContext } from "./appContext";
+    
+    //retrive the required object from the store. Because it needs to be reactive, use the $ syntax. 
+    // const products = $appContext.products;
     
 </script>
 
 
-<h1>🚀Rocket Game Corner 🚀 - Prize Shop</h1>
 <div class="mainGrid">
     <div class="productContainer">
-        {#each products as product}
+         
+        {#each $appContext.products as product}
             <Product item={product} />
         {/each}
     </div>
     <div>
+        
         <ShoppingCart/>
         
     </div>
 </div>
 
+ 
 <style>
     .mainGrid {
     display: grid;

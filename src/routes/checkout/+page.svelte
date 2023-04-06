@@ -1,20 +1,13 @@
 <script>
-    import { getContext } from "svelte";
+    import { appContext } from '../appContext';
     import { goto } from '$app/navigation';
     import { groupItems } from "../groupItems";
-
-    const context = getContext('context');
-	let cart = [];
-	let totalCost;
-	let groups;
-    let clearCart;
-
-	$: if ($context.cart) {
-		cart = $context.cart;
-		totalCost = cart.map((item) => item.cost).reduce((prev, cost) => prev + cost, 0);
-		groups = groupItems(cart);
-        clearCart = context.clearCart;
-	}
+    
+    //this time they don't need to be reactive because cart is not updated from this page??
+	const cart = $appContext.cart;	
+    const clearCart = appContext.clearCart;	
+	const totalCost = cart.map((item) => item.cost).reduce((prev, cost) => prev + cost, 0);
+	const groups = groupItems(cart);
 
     function handlePay() {
         console.log("handle pay function called");
@@ -29,8 +22,21 @@
 
 <ul>
     {#each groups as group}
-        <li >{group.count} {group.item.name}, 🪙{group.item.cost.toLocaleString('en-NZ')}ea</li>
+        <li class="checkoutItem"> 
+            <img width={50} height={50} src={group.item.image} alt="checkoutItem"/> 
+            {group.count} 
+            {group.item.name}, 
+            🪙{group.item.cost.toLocaleString('en-NZ')} ea
+        </li>
+        
     {/each}
 </ul>
 <p><strong>Total cost</strong> 🪙{totalCost.toLocaleString('en-NZ')}</p>
 <button on:click={() => handlePay()}>Pay now</button>
+
+<style>
+    .checkoutItem {
+        background-color: gainsboro;
+        
+    }
+</style>

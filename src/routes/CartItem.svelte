@@ -1,14 +1,10 @@
 <script>
-    import { getContext } from "svelte";
+    import { appContext } from "./appContext";
     export let group;
-    const context = getContext('context');
     let item = group.item;
     let count = group.count;
-    let removeCartItem;
-
-    $: {
-        removeCartItem = context.removeCartItem;
-    }
+    let removeCartItem = appContext.removeCartItem;
+    
     
 </script>
 
@@ -18,3 +14,14 @@
     <span>x {count}</span>
     <button on:click={() => removeCartItem(item)}>remove</button>
 </div>
+
+<style>
+    .cartItem {
+        background-color: gainsboro;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 5px;
+    }
+</style>

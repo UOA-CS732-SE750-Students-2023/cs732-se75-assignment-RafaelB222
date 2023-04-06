@@ -1,17 +1,15 @@
 <script>
-    import { getContext } from "svelte";
-    const context = getContext('context');
+    import { appContext } from "./appContext";    
     export let item;
   
-    let handleAddToCart;
-  
-    $: {
-        handleAddToCart = context.handleAddToCart;
-    }
+    let handleAddToCart = appContext.handleAddToCart;
+    
+    
   </script>
   
   <div class="product">
     <div>
+      
       <img width={200} height={200} src={item.image} alt="product" class="img">
     </div>
     <div>
