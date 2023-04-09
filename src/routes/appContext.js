@@ -3,12 +3,12 @@ import { writable } from 'svelte/store';
 //which use it. 
 
 const products = [
-    { name: 'Abra', cost: 180, image: '/Abra.png' },
-    { name: 'Clefairy', cost: 500, image: '/Clefairy.png' },
-    { name: 'Nidorina', cost: 1200, image: '/Nidorina.png' },
-    { name: 'Dratini', cost: 2800, image: '/Dratini.png' },
-    { name: 'Scyther', cost: 5500, image: '/Scyther.png' },
-    { name: 'Porygon', cost: 9999, image: '/Porygon.png' },
+    { name: 'Abra', cost: 180, image: '/Abra.png', onSpecial: false },
+    { name: 'Clefairy', cost: 500, image: '/Clefairy.png', onSpecial: false },
+    { name: 'Nidorina', cost: 1200, image: '/Nidorina.png', onSpecial: false },
+    { name: 'Dratini', cost: 2800, image: '/Dratini.png', onSpecial: false },
+    { name: 'Scyther', cost: 5500, image: '/Scyther.png', onSpecial: false },
+    { name: 'Porygon', cost: 9999, image: '/Porygon.png', onSpecial: false },
 ];
 
 //specify the initial state before creating the store. 
@@ -53,11 +53,13 @@ function createStore() {
       //When the create store function is called, everything which the function returns will be added to the store along with the 
       //initial state. 
     return {
+        update,
         subscribe,
         handleAddToCart,
         clearCart,
         removeCartItem
     };
 }
-//Export the created store as appContext
-export const appContext = createStore();
+
+export const appContext = createStore(); 
+

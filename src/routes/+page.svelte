@@ -2,11 +2,7 @@
     //This is the page that will be displayed at "/"
     import Product from "./Product.svelte";
 	import ShoppingCart from "./ShoppingCart.svelte";
-    import { appContext } from "./appContext";
-    
-    //retrive the required object from the store. Because it needs to be reactive, use the $ syntax. 
-    // const products = $appContext.products;
-    
+    import { appContext } from "./appContext";    
 </script>
 
 
@@ -17,10 +13,8 @@
             <Product item={product} />
         {/each}
     </div>
-    <div>
-        
-        <ShoppingCart/>
-        
+    <div>        
+        <ShoppingCart/>        
     </div>
 </div>
 

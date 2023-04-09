@@ -8,10 +8,14 @@
 
 	$: {
 		//cart must be reactively assigned to $appContext.cart so that whenever the store is updated the cart variable is reassigned. 
+		//The same is true for the groups
 		cart = $appContext.cart;	
 		totalCost = cart.map((item) => item.cost).reduce((prev, cost) => prev + cost, 0);
-		groups = groupItems(cart);
+		groups = groupItems($appContext.cart);
+		console.log('Groups:', groups);
 	}
+	
+	
 		
 		
 </script>
@@ -21,6 +25,8 @@
 	{#if cart.length > 0} 
 		{#each groups as group}
 			<CartItem {group} />
+			
+			
 		{/each}
 	{:else}
 		<p>Cart is empty</p>

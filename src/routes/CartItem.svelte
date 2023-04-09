@@ -1,8 +1,16 @@
 <script>
     import { appContext } from "./appContext";
+    //Receive a group of products to be purchased as a prop
     export let group;
-    let item = group.item;
-    let count = group.count;
+    //access the properties of the group prop. These must be reactively assigned using the $ syntax.     
+    let item;
+    let count;
+    $: {
+        item = group.item;
+        count = group.count;
+    }
+    console.log(count);
+    //access the remove item method from the store
     let removeCartItem = appContext.removeCartItem;
     
     

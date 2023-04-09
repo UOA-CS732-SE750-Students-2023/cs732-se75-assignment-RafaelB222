@@ -9,11 +9,12 @@
 	const totalCost = cart.map((item) => item.cost).reduce((prev, cost) => prev + cost, 0);
 	const groups = groupItems(cart);
 
+    //define a function to handle what happens when the user clicks the pay now button
     function handlePay() {
         console.log("handle pay function called");
         clearCart();
         alert('Thank you for your purchase!');
-        goto('/', { replaceState: true});
+        goto('/', { replaceState: true });
     }
 
 </script>
@@ -22,8 +23,8 @@
 
 <ul>
     {#each groups as group}
-        <li class="checkoutItem"> 
-            <img width={50} height={50} src={group.item.image} alt="checkoutItem"/> 
+        <li> 
+            <img width={25} height={25} src={group.item.image} alt="checkoutItem"/> 
             {group.count} 
             {group.item.name}, 
             🪙{group.item.cost.toLocaleString('en-NZ')} ea
@@ -34,9 +35,3 @@
 <p><strong>Total cost</strong> 🪙{totalCost.toLocaleString('en-NZ')}</p>
 <button on:click={() => handlePay()}>Pay now</button>
 
-<style>
-    .checkoutItem {
-        background-color: gainsboro;
-        
-    }
-</style>
