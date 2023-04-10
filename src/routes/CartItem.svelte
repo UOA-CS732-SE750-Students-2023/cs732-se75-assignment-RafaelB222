@@ -1,5 +1,5 @@
 <script>
-    import { appContext } from "./appContext";
+    import { appWritableStore } from "./appWritableStore";
     //Receive a group of products to be purchased as a prop
     export let group;
     //access the properties of the group prop. These must be reactively assigned using the $ syntax.     
@@ -10,9 +10,7 @@
         count = group.count;
     }
     //access the remove item method from the store
-    let removeCartItem = appContext.removeCartItem;
-    
-    
+    const removeCartItem = appWritableStore.removeCartItem;    
 </script>
 
 <div class="cartItem">

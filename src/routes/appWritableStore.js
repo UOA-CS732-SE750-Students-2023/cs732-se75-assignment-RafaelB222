@@ -61,5 +61,5 @@ function createStore() {
     };
 }
 
-export const appContext = createStore(); 
+export const appWritableStore = createStore(); 
 

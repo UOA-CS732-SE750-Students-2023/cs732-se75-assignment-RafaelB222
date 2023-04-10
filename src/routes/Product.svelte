@@ -1,18 +1,18 @@
 <script>
-    import { appContext } from "./appContext";
+    import { appWritableStore } from "./appWritableStore";
     import { getContext } from "svelte";
     export let item;
 
     //Retreive the daOfTheWeek from the context
     const dayOfTheWeek = getContext('context');
-    const handleAddToCart = appContext.handleAddToCart;    
+    const handleAddToCart = appWritableStore.handleAddToCart;    
 
     //reactively update the products in the store according to the dayOfTheWeek
     let updatedProducts;
     $: {
-        appContext.update(state => {
+        appWritableStore.update(state => {
             updatedProducts = state.products.map((product) => {
-                if (dayOfTheWeek.specials.includes(product.name)) {
+                if (dayOfTheWeek.specials.includes(product.name) & product.onSpecial == false) {
                     return {
                         ...product,
                         onSpecial: true,

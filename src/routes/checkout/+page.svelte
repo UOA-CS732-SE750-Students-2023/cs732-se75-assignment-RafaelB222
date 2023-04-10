@@ -1,11 +1,11 @@
 <script>
-    import { appContext } from '../appContext';
+    import { appWritableStore } from '../appWritableStore';
     import { goto } from '$app/navigation';
     import { groupItems } from "../groupItems";
     
-    //this time they don't need to be reactive because cart is not updated from this page??
-	const cart = $appContext.cart;	
-    const clearCart = appContext.clearCart;	
+    //this time they don't need to be reactive because cart is not updated from this page
+	const cart = $appWritableStore.cart;	
+    const clearCart = appWritableStore.clearCart;	
 	const totalCost = cart.map((item) => item.cost).reduce((prev, cost) => prev + cost, 0);
 	const groups = groupItems(cart);
 

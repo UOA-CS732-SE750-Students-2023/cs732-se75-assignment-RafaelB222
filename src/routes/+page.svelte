@@ -2,14 +2,14 @@
     //This is the page that will be displayed at "/"
     import Product from "./Product.svelte";
 	import ShoppingCart from "./ShoppingCart.svelte";
-    import { appContext } from "./appContext";    
+    import { appWritableStore } from "./appWritableStore";    
 </script>
 
 
 <div class="mainGrid">
     <div class="productContainer">
          
-        {#each $appContext.products as product}
+        {#each $appWritableStore.products as product}
             <Product item={product} />
         {/each}
     </div>

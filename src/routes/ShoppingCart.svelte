@@ -1,5 +1,5 @@
 <script>
-	import { appContext } from './appContext.js';
+	import { appWritableStore } from './appWritableStore.js';
 	import { groupItems } from './groupItems.js';
 	import CartItem from './CartItem.svelte';
 	let cart;
@@ -9,9 +9,9 @@
 	$: {
 		//cart must be reactively assigned to $appContext.cart so that whenever the store is updated the cart variable is reassigned. 
 		//The same is true for the groups
-		cart = $appContext.cart;	
+		cart = $appWritableStore.cart;	
 		totalCost = cart.map((item) => item.cost).reduce((prev, cost) => prev + cost, 0);
-		groups = groupItems($appContext.cart);
+		groups = groupItems($appWritableStore.cart);
 	}
 	
 	
