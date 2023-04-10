@@ -23,7 +23,6 @@ function createStore() {
 
     //update the state of the store by setting the state as the current state with an updated cart. 
     function handleAddToCart(item) {
-        console.log("handleAddToCart function called");
         update(state => {
             return { ...state, cart: [...state.cart, item] };
         });
@@ -31,7 +30,6 @@ function createStore() {
 
     //Update the state of the store by setting the cart to empty. 
     function clearCart() {
-        console.log('clear cart function called');
         update(state => {
             return {... state, cart: [] }
         });

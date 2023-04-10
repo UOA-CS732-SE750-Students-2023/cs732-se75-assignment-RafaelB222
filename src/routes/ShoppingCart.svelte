@@ -8,7 +8,7 @@
 
 	$: {
 		//cart must be reactively assigned to $appContext.cart so that whenever the store is updated the cart variable is reassigned. 
-		//The same is true for the groups
+		//The same is true for the groups and total cost.
 		cart = $appWritableStore.cart;	
 		totalCost = cart.map((item) => item.cost).reduce((prev, cost) => prev + cost, 0);
 		groups = groupItems($appWritableStore.cart);

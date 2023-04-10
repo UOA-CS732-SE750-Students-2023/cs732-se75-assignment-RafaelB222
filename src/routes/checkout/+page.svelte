@@ -11,7 +11,6 @@
 
     //define a function to handle what happens when the user clicks the pay now button
     function handlePay() {
-        console.log("handle pay function called");
         clearCart();
         alert('Thank you for your purchase!');
         goto('/', { replaceState: true });
