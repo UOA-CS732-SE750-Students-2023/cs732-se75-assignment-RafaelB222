@@ -9,7 +9,6 @@
         item = group.item;
         count = group.count;
     }
-    console.log(count);
     //access the remove item method from the store
     let removeCartItem = appContext.removeCartItem;
     

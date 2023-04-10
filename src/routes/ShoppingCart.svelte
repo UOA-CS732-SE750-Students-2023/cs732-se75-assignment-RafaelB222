@@ -12,7 +12,6 @@
 		cart = $appContext.cart;	
 		totalCost = cart.map((item) => item.cost).reduce((prev, cost) => prev + cost, 0);
 		groups = groupItems($appContext.cart);
-		console.log('Groups:', groups);
 	}
 	
 	
@@ -24,9 +23,7 @@
 	<h3>My Cart</h3>
 	{#if cart.length > 0} 
 		{#each groups as group}
-			<CartItem {group} />
-			
-			
+			<CartItem {group} />			
 		{/each}
 	{:else}
 		<p>Cart is empty</p>

@@ -9,10 +9,6 @@
     setContext('context', dayOfTheWeek);    
 </script>
 
-
 <h1>🚀Rocket Game Corner 🚀 - Prize Shop</h1>
-
-
-
 
 <slot></slot>
