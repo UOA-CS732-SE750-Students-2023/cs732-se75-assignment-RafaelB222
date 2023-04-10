@@ -36,3 +36,18 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+## Running my tech demo app
+
+To run the app:
+- Clone the repository to a folder on your machine. 
+- Open the newly created folder in VSCode. 
+- Open a terminal and run npm install. 
+- You will then be able to run the app using npm run dev. 
+
+## Compare to Lab 2 solution
+In this project I have recreated the pokemon cart from lab 2 exercise 6. If you want to compare how Svelte is used to React, you can look at the lab 2 solution provided in the lab 2 module on canvas.
+
+The lab solution will not have the remove from cart button, the products on special, or the default error page. 
+
+
