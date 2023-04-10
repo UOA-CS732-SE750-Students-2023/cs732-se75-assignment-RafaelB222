@@ -1,26 +1,10 @@
 <div class="Yikes">
     <h3>Oh dear, this is not where you wanted to be!!!!</h3>
-<img src="/Scary_Garchomp.png" alt="Chomp" height={800} width={800}>
+    <img src="/Scary_Garchomp.png" alt="Chomp">
 </div>
 
 
-<style>
-    :body {
-        margin: 0;
-        padding: 0;
-    
-    }
-
-    div {
-        padding: 0;
-        margin: 0;
-    }
-
-    .Yikes {
-        background-color: black;
-        color: white;
-    }
-
+<style>       
     .Yikes img {
         display: block;
         margin-left: auto;
